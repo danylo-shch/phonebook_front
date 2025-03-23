@@ -10,7 +10,7 @@ const ShowPersons = ({persons, filter, click}) => {
       <ul>
         {persons.map((person) => {
         if (person.name.toLowerCase().includes(filter.toLowerCase())) {
-          return <li key={person.id}>{person.name} {person.number} <button id= {person.id}onClick={click}>Delete entry</button></li>
+          return <li key={person.id}>{person.name} {person.phone} <button id= {person.id}onClick={click}>Delete entry</button></li>
         }
       })}
       </ul>
@@ -84,7 +84,7 @@ const Handleclick = (event) => {
 
       const samepersonObject = {
         name: newName,
-        number: newPhone,
+        phone: newPhone,
         id: persons[change_phone_user].id
       }
       backend.update(persons[change_phone_user].id,samepersonObject)
@@ -99,7 +99,7 @@ const Handleclick = (event) => {
 
     const personObject = {
     name: newName,
-    number: newPhone,
+    phone: newPhone,
     id: ((parseInt(persons[persons.length - 1].id)) + 1).toString()
   }
   const updatedPersons = persons.concat(personObject)
